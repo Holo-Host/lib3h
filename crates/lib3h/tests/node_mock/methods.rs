@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 
 use super::{chain_store::ChainStore, NodeMock, TIMEOUT_MS};
-use crate::constants::*;
 use holochain_persistence_api::hash::HashString;
 use lib3h_protocol::{
     data_types::*, protocol_client::Lib3hClientProtocol, protocol_server::Lib3hServerProtocol,
@@ -10,6 +9,13 @@ use lib3h_protocol::{
 use multihash::Hash;
 use std::collections::HashMap;
 use url::Url;
+lazy_static! {
+    pub static ref NETWORK_A_ID: String = "net_A".to_string();
+    pub static ref ALEX_AGENT_ID: Address = "alex".to_string().into_bytes();
+    pub static ref BILLY_AGENT_ID: Address = "billy".to_string().into_bytes();
+    pub static ref SPACE_ADDRESS_A: Address = "SPACE_A".to_string().into_bytes();
+    pub static ref SPACE_ADDRESS_B: Address = "SPACE_B".to_string().into_bytes();
+}
 
 /// Query logs
 impl NodeMock {

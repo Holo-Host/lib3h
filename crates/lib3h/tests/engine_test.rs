@@ -6,10 +6,6 @@ extern crate backtrace;
 extern crate lib3h;
 extern crate lib3h_protocol;
 
-#[macro_use]
-mod constants;
-
-use constants::*;
 use lib3h::{
     dht::{dht_trait::Dht, mirror_dht::MirrorDht},
     engine::{RealEngine, RealEngineConfig},
@@ -23,6 +19,14 @@ use lib3h_protocol::{
 };
 use url::Url;
 
+use lib3h_protocol::Address;
+lazy_static! {
+    pub static ref NETWORK_A_ID: String = "net_A".to_string();
+    pub static ref ALEX_AGENT_ID: Address = "alex".to_string().into_bytes();
+    pub static ref BILLY_AGENT_ID: Address = "billy".to_string().into_bytes();
+    pub static ref SPACE_ADDRESS_A: Address = "SPACE_A".to_string().into_bytes();
+    pub static ref SPACE_ADDRESS_B: Address = "SPACE_B".to_string().into_bytes();
+}
 //--------------------------------------------------------------------------------------------------
 // Test suites
 //--------------------------------------------------------------------------------------------------
